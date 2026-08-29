@@ -6,10 +6,13 @@ import { ThemeProvider } from './context/ThemeContext';
 import { AuthProvider } from './context/AuthContext';
 import './index.css';
 
-// Register Service Worker for PWA
+// Register Service Worker for PWA with auto-update
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch((err) => {
+    navigator.serviceWorker.register('/sw.js').then((reg) => {
+      // Force checking for sw updates on page load
+      reg.update().catch(() => {});
+    }).catch((err) => {
       console.log('ServiceWorker registration skipped:', err);
     });
   });
