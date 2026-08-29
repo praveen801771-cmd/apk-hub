@@ -107,7 +107,7 @@ export default function Footer() {
           }}
         >
           <div>
-            © {new Date().getFullYear()} APK Hub. All rights reserved.
+            APK Hub • {new Date().getFullYear()}
           </div>
         </div>
       </div>
