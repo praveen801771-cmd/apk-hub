@@ -94,27 +94,15 @@ export default function Navbar() {
           <div>
             <span
               style={{
-                fontSize: '1.2rem',
+                fontSize: '1.25rem',
                 fontWeight: 800,
                 letterSpacing: '-0.02em',
-                lineHeight: 1.15,
+                lineHeight: 1.2,
                 display: 'block'
               }}
               className="text-gradient"
             >
               APK Hub
-            </span>
-            <span
-              style={{
-                display: 'block',
-                fontSize: '0.65rem',
-                color: 'var(--text-muted)',
-                fontWeight: 600,
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase'
-              }}
-            >
-              Verified Store
             </span>
           </div>
         </Link>

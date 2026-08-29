@@ -44,7 +44,7 @@ export default function Footer() {
               </span>
             </div>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: '280px' }}>
-              Discover and download verified Android APK packages.
+              Discover and download Android APK packages.
             </p>
           </div>
 

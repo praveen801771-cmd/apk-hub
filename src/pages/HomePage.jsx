@@ -106,7 +106,7 @@ export default function HomePage() {
                 gap: '6px'
               }}
             >
-              <Sparkles size={13} color="var(--primary)" /> Verified Android Packages
+              <Sparkles size={13} color="var(--primary)" /> Android Packages & Apps
             </span>
 
             <h1
