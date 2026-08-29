@@ -107,10 +107,7 @@ export default function Footer() {
           }}
         >
           <div>
-            © {new Date().getFullYear()} APK Store. Direct Supabase Production Backend.
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-            <span>Built with Liquid Glassmorphism</span>
+            © {new Date().getFullYear()} APK Hub. All rights reserved.
           </div>
         </div>
       </div>

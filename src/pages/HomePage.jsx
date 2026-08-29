@@ -121,18 +121,6 @@ export default function HomePage() {
               Discover <span className="text-gradient">Amazing Apps</span>
             </h1>
 
-            <p
-              style={{
-                fontSize: 'clamp(0.92rem, 2vw, 1.12rem)',
-                color: 'var(--text-secondary)',
-                marginBottom: '26px',
-                lineHeight: 1.6
-              }}
-            >
-              Find useful apps, tools, and games in one seamless Liquid Glass marketplace.
-              Direct, secure APK downloads with zero bloat.
-            </p>
-
             {/* Hero Search Bar */}
             <form
               onSubmit={handleHeroSearch}
