@@ -44,38 +44,82 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass-header py-3 shadow-lg' : 'bg-transparent py-4'
-      }`}
+      className="top-title-bar"
       style={{
-        borderBottom: isScrolled ? '1px solid var(--glass-border)' : '1px solid transparent'
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        background: 'var(--glass-bg-heavy)',
+        backdropFilter: 'blur(24px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+        borderBottom: '1px solid var(--glass-border)',
+        boxShadow: isScrolled ? '0 8px 30px -4px rgba(0, 0, 0, 0.4)' : '0 2px 16px -2px rgba(0, 0, 0, 0.2)',
+        transition: 'all var(--transition-normal)'
       }}
     >
-      <div className="container flex items-center justify-between gap-4" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        
-        {/* Brand Logo */}
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+      <div
+        className="container"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          height: '62px',
+          gap: '12px'
+        }}
+      >
+        {/* Top Title Bar: Brand Logo & Title */}
+        <Link
+          to="/"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            textDecoration: 'none',
+            flexShrink: 0
+          }}
+        >
           <div
             style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '12px',
-              background: 'linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%)',
+              width: '36px',
+              height: '36px',
+              borderRadius: '11px',
+              background: 'linear-gradient(135deg, #0ea5e9 0%, #6366f1 50%, #a855f7 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 4px 16px -2px var(--primary-glow)',
-              border: '1px solid rgba(255, 255, 255, 0.4)'
+              boxShadow: '0 4px 14px -2px var(--primary-glow)',
+              border: '1px solid rgba(255, 255, 255, 0.35)',
+              flexShrink: 0
             }}
           >
-            <Sparkles size={22} color="#ffffff" />
+            <Sparkles size={19} color="#ffffff" />
           </div>
           <div>
-            <span style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.02em' }} className="text-gradient">
-              APK Store
+            <span
+              style={{
+                fontSize: '1.2rem',
+                fontWeight: 800,
+                letterSpacing: '-0.02em',
+                lineHeight: 1.15,
+                display: 'block'
+              }}
+              className="text-gradient"
+            >
+              APK Hub
             </span>
-            <span style={{ display: 'block', fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: '-3px', letterSpacing: '0.04em' }}>
-              MARKETPLACE
+            <span
+              style={{
+                display: 'block',
+                fontSize: '0.65rem',
+                color: 'var(--text-muted)',
+                fontWeight: 600,
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase'
+              }}
+            >
+              Verified Store
             </span>
           </div>
         </Link>
@@ -86,7 +130,7 @@ export default function Navbar() {
           style={{
             display: 'none',
             flex: '1',
-            maxWidth: '420px',
+            maxWidth: '400px',
             position: 'relative',
             margin: '0 16px'
           }}
@@ -98,10 +142,10 @@ export default function Navbar() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="glass-input"
-            style={{ paddingLeft: '40px', height: '42px', fontSize: '0.9rem' }}
+            style={{ paddingLeft: '38px', height: '38px', fontSize: '0.88rem', borderRadius: 'var(--radius-full)' }}
           />
           <Search
-            size={18}
+            size={16}
             style={{
               position: 'absolute',
               left: '14px',
@@ -114,17 +158,19 @@ export default function Navbar() {
         </form>
 
         {/* Desktop Nav Links */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '12px' }} className="nav-desktop">
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '10px' }} className="nav-desktop">
           <Link
             to="/apps"
             className="btn-glass"
             style={{
-              height: '40px',
-              padding: '0 16px',
+              height: '38px',
+              padding: '0 14px',
+              fontSize: '0.85rem',
+              borderRadius: 'var(--radius-full)',
               borderColor: isActive('/apps') ? 'var(--primary)' : 'var(--glass-border)'
             }}
           >
-            <Layers size={16} />
+            <Layers size={15} />
             <span>Explore</span>
           </Link>
 
@@ -134,7 +180,7 @@ export default function Navbar() {
             className="btn-glass"
             title={`Current theme: ${themeMode} (click to toggle)`}
             aria-label="Toggle theme"
-            style={{ width: '40px', height: '40px', padding: 0 }}
+            style={{ width: '38px', height: '38px', padding: 0, borderRadius: 'var(--radius-full)' }}
           >
             {getThemeIcon()}
           </button>
@@ -145,22 +191,24 @@ export default function Navbar() {
             className="btn-glass"
             title={user ? (isAdmin ? 'Admin Dashboard' : 'Admin Panel') : 'Admin Login'}
             style={{
-              height: '40px',
+              height: '38px',
               padding: '0 14px',
+              fontSize: '0.85rem',
+              borderRadius: 'var(--radius-full)',
               borderColor: user && isAdmin ? 'rgba(56, 189, 248, 0.4)' : 'var(--glass-border)'
             }}
           >
-            <Shield size={16} color={user && isAdmin ? '#38bdf8' : 'currentColor'} />
-            <span style={{ fontSize: '0.85rem' }}>{user && isAdmin ? 'Dashboard' : 'Admin'}</span>
+            <Shield size={15} color={user && isAdmin ? '#38bdf8' : 'currentColor'} />
+            <span>{user && isAdmin ? 'Dashboard' : 'Admin'}</span>
           </Link>
         </nav>
 
-        {/* Mobile Menu Toggle Button */}
+        {/* Mobile Title Bar Actions */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }} className="nav-mobile-toggle">
           <button
             onClick={cycleTheme}
             className="btn-glass"
-            style={{ width: '38px', height: '38px', padding: 0 }}
+            style={{ width: '36px', height: '36px', padding: 0, borderRadius: 'var(--radius-full)' }}
             aria-label="Toggle theme"
           >
             {getThemeIcon()}
@@ -168,10 +216,10 @@ export default function Navbar() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="btn-glass"
-            style={{ width: '38px', height: '38px', padding: 0 }}
-            aria-label="Open navigation menu"
+            style={{ width: '36px', height: '36px', padding: 0, borderRadius: 'var(--radius-full)' }}
+            aria-label="Open search & menu"
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
 
