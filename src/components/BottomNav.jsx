@@ -13,12 +13,12 @@ export default function BottomNav() {
       className="bottom-nav-container"
       style={{
         position: 'fixed',
-        bottom: '16px',
+        bottom: 'calc(14px + env(safe-area-inset-bottom, 0px))',
         left: '50%',
         transform: 'translateX(-50%)',
         zIndex: 45,
         width: 'calc(100% - 32px)',
-        maxWidth: '400px'
+        maxWidth: '390px'
       }}
     >
       <nav

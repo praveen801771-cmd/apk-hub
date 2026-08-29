@@ -46,9 +46,8 @@ export default function AdminLogin() {
       <div className="container" style={{ maxWidth: '440px' }}>
         
         <div
-          className="glass-panel"
+          className="glass-panel admin-login-card"
           style={{
-            padding: '40px 32px',
             borderRadius: 'var(--radius-xl)',
             boxShadow: 'var(--glass-shadow-lg)'
           }}

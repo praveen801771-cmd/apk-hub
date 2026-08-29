@@ -136,8 +136,8 @@ export default function AppsPage() {
         <div
           className="glass-panel"
           style={{
-            padding: '20px',
-            marginBottom: '32px',
+            padding: '16px',
+            marginBottom: '28px',
             borderRadius: 'var(--radius-lg)'
           }}
         >
@@ -145,27 +145,27 @@ export default function AppsPage() {
           <div
             style={{
               display: 'flex',
-              gap: '14px',
+              gap: '10px',
               flexWrap: 'wrap',
               alignItems: 'center',
               justifyContent: 'space-between',
-              marginBottom: '16px'
+              marginBottom: '14px'
             }}
           >
-            <div style={{ position: 'relative', flex: '1', minWidth: '240px' }}>
+            <div style={{ position: 'relative', flex: '1', minWidth: '220px' }}>
               <input
                 type="text"
                 placeholder="Search apps, developers, keywords..."
                 value={searchQuery}
                 onChange={(e) => handleSearchChange(e.target.value)}
                 className="glass-input"
-                style={{ paddingLeft: '42px', height: '44px' }}
+                style={{ paddingLeft: '40px', height: '42px', fontSize: '0.9rem' }}
               />
               <Search
                 size={18}
                 style={{
                   position: 'absolute',
-                  left: '14px',
+                  left: '13px',
                   top: '50%',
                   transform: 'translateY(-50%)',
                   color: 'var(--text-muted)'
@@ -190,23 +190,23 @@ export default function AppsPage() {
               )}
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
               <button
                 onClick={handleFeaturedToggle}
                 className={`btn-glass ${featuredOnly ? 'btn-primary' : ''}`}
-                style={{ height: '44px', padding: '0 14px', fontSize: '0.85rem' }}
+                style={{ height: '42px', padding: '0 14px', fontSize: '0.85rem' }}
               >
-                <Sparkles size={16} />
+                <Sparkles size={15} />
                 <span>Featured</span>
               </button>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <ArrowUpDown size={16} style={{ color: 'var(--text-muted)' }} />
+                <ArrowUpDown size={15} style={{ color: 'var(--text-muted)' }} />
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
                   className="glass-input"
-                  style={{ width: 'auto', height: '44px', padding: '0 12px', fontSize: '0.85rem', cursor: 'pointer' }}
+                  style={{ width: 'auto', height: '42px', padding: '0 10px', fontSize: '0.85rem', cursor: 'pointer' }}
                 >
                   <option value="newest">Newest First</option>
                   <option value="name">Name (A-Z)</option>
@@ -217,20 +217,17 @@ export default function AppsPage() {
 
           {/* Category Chips Bar */}
           <div
+            className="category-scroll-container"
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              overflowX: 'auto',
-              paddingTop: '8px',
+              paddingTop: '10px',
               borderTop: '1px solid var(--glass-border)',
-              scrollbarWidth: 'none'
+              marginTop: '4px'
             }}
           >
             <button
               onClick={() => handleCategorySelect('')}
-              className={`btn-glass ${!selectedCategory ? 'btn-primary' : ''}`}
-              style={{ padding: '6px 14px', fontSize: '0.82rem', borderRadius: 'var(--radius-full)' }}
+              className={`category-chip ${!selectedCategory ? 'active' : ''}`}
+              style={{ fontSize: '0.82rem', padding: '7px 16px' }}
             >
               All Categories
             </button>
@@ -241,8 +238,8 @@ export default function AppsPage() {
                 <button
                   key={cat.id}
                   onClick={() => handleCategorySelect(cat.slug)}
-                  className={`btn-glass ${isSelected ? 'btn-primary' : ''}`}
-                  style={{ padding: '6px 14px', fontSize: '0.82rem', borderRadius: 'var(--radius-full)', whiteSpace: 'nowrap' }}
+                  className={`category-chip ${isSelected ? 'active' : ''}`}
+                  style={{ fontSize: '0.82rem', padding: '7px 16px' }}
                 >
                   {cat.name}
                 </button>
@@ -252,8 +249,8 @@ export default function AppsPage() {
             {hasActiveFilters && (
               <button
                 onClick={clearAllFilters}
-                className="btn-glass btn-danger"
-                style={{ padding: '6px 12px', fontSize: '0.8rem', borderRadius: 'var(--radius-full)', marginLeft: 'auto' }}
+                className="category-chip btn-danger"
+                style={{ fontSize: '0.8rem', padding: '7px 14px', marginLeft: 'auto' }}
               >
                 <X size={14} /> Clear
               </button>

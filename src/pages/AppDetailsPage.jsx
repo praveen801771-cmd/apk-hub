@@ -191,29 +191,27 @@ export default function AppDetailsPage() {
 
         {/* 1. App Header Glass Card */}
         <div
-          className="glass-panel"
+          className="glass-panel app-details-header-card"
           style={{
-            padding: '32px',
-            marginBottom: '32px',
+            marginBottom: '28px',
             borderRadius: 'var(--radius-xl)'
           }}
         >
           <div
             style={{
               display: 'flex',
-              gap: '24px',
+              gap: '20px',
               alignItems: 'flex-start',
               justifyContent: 'space-between',
               flexWrap: 'wrap'
             }}
           >
             {/* Left: Icon & Main Titles */}
-            <div style={{ display: 'flex', gap: '20px', alignItems: 'center', minWidth: '280px', flex: '1' }}>
+            <div style={{ display: 'flex', gap: '16px', alignItems: 'center', minWidth: '240px', flex: '1' }}>
               <div
+                className="app-details-icon"
                 style={{
-                  width: '96px',
-                  height: '96px',
-                  borderRadius: '24px',
+                  borderRadius: '20px',
                   background: 'var(--glass-bg-hover)',
                   border: '1px solid var(--glass-border-highlight)',
                   display: 'flex',
@@ -221,7 +219,7 @@ export default function AppDetailsPage() {
                   justifyContent: 'center',
                   overflow: 'hidden',
                   flexShrink: 0,
-                  boxShadow: '0 10px 28px -6px rgba(0,0,0,0.3)'
+                  boxShadow: '0 8px 24px -6px rgba(0,0,0,0.3)'
                 }}
               >
                 {iconUrl ? (
@@ -231,13 +229,13 @@ export default function AppDetailsPage() {
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                 ) : (
-                  <Box size={44} color="var(--primary)" />
+                  <Box size={38} color="var(--primary)" />
                 )}
               </div>
 
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '4px' }}>
-                  <h1 style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)', fontWeight: 800, letterSpacing: '-0.02em' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '4px' }}>
+                  <h1 style={{ fontSize: 'clamp(1.4rem, 3.5vw, 2.2rem)', fontWeight: 800, letterSpacing: '-0.02em' }}>
                     {app.name}
                   </h1>
                   {app.featured && (
@@ -254,7 +252,7 @@ export default function AppDetailsPage() {
                   )}
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-muted)', fontSize: '0.88rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', fontSize: '0.82rem', flexWrap: 'wrap' }}>
                   {app.developer && <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{app.developer}</span>}
                   {app.categories && (
                     <>
@@ -275,55 +273,57 @@ export default function AppDetailsPage() {
             </div>
 
             {/* Right Actions: Download & Share */}
-            <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '10px', alignItems: 'center', width: '100%', maxWidth: '100%', flexWrap: 'wrap' }} className="app-header-actions">
               <button
                 onClick={() => setShareOpen(true)}
                 className="btn-glass"
-                style={{ height: '46px', padding: '0 16px' }}
+                style={{ height: '44px', padding: '0 16px', flex: '1', minWidth: '100px' }}
                 title="Share application"
               >
-                <Share2 size={18} />
+                <Share2 size={17} />
                 <span>Share</span>
               </button>
 
-              <DownloadButton
-                apkUrl={apkUrl}
-                appName={app.name}
-                version={versionString}
-                size={currentVersion?.apk_size || app.apk_size}
-              />
+              <div style={{ flex: '2', minWidth: '160px' }}>
+                <DownloadButton
+                  apkUrl={apkUrl}
+                  appName={app.name}
+                  version={versionString}
+                  size={currentVersion?.apk_size || app.apk_size}
+                />
+              </div>
             </div>
           </div>
 
-          {/* Quick Spec Pills Row */}
+          {/* Quick Spec Pills Row - Responsive 2x2 on Mobile, 4 in a row on Desktop */}
           <div
+            className="app-specs-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-              gap: '12px',
-              marginTop: '28px',
-              paddingTop: '20px',
+              gap: '10px',
+              marginTop: '24px',
+              paddingTop: '18px',
               borderTop: '1px solid var(--glass-border)'
             }}
           >
-            <div className="glass-panel" style={{ padding: '12px 16px', borderRadius: 'var(--radius-md)' }}>
-              <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Version</span>
-              <p style={{ fontSize: '0.95rem', fontWeight: 700, marginTop: '2px' }}>v{versionString}</p>
+            <div className="glass-panel" style={{ padding: '10px 14px', borderRadius: 'var(--radius-md)' }}>
+              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Version</span>
+              <p style={{ fontSize: '0.9rem', fontWeight: 700, marginTop: '2px' }}>v{versionString}</p>
             </div>
 
-            <div className="glass-panel" style={{ padding: '12px 16px', borderRadius: 'var(--radius-md)' }}>
-              <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Package Size</span>
-              <p style={{ fontSize: '0.95rem', fontWeight: 700, marginTop: '2px' }}>{apkSizeFormatted}</p>
+            <div className="glass-panel" style={{ padding: '10px 14px', borderRadius: 'var(--radius-md)' }}>
+              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Package Size</span>
+              <p style={{ fontSize: '0.9rem', fontWeight: 700, marginTop: '2px' }}>{apkSizeFormatted}</p>
             </div>
 
-            <div className="glass-panel" style={{ padding: '12px 16px', borderRadius: 'var(--radius-md)' }}>
-              <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Required Android</span>
-              <p style={{ fontSize: '0.95rem', fontWeight: 700, marginTop: '2px' }}>{androidRequirement}</p>
+            <div className="glass-panel" style={{ padding: '10px 14px', borderRadius: 'var(--radius-md)' }}>
+              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Required Android</span>
+              <p style={{ fontSize: '0.9rem', fontWeight: 700, marginTop: '2px' }}>{androidRequirement}</p>
             </div>
 
-            <div className="glass-panel" style={{ padding: '12px 16px', borderRadius: 'var(--radius-md)' }}>
-              <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Architecture</span>
-              <p style={{ fontSize: '0.95rem', fontWeight: 700, marginTop: '2px' }}>{architecture}</p>
+            <div className="glass-panel" style={{ padding: '10px 14px', borderRadius: 'var(--radius-md)' }}>
+              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Architecture</span>
+              <p style={{ fontSize: '0.9rem', fontWeight: 700, marginTop: '2px', wordBreak: 'break-word' }}>{architecture}</p>
             </div>
           </div>
         </div>

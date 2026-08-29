@@ -225,3 +225,142 @@
     background-position: 0 50%;
   }
 }
+
+/* Horizontal Category Scroller */
+.category-scroll-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 6px 2px 12px 2px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.category-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Category Chip */
+.category-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 18px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.88rem;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg-subtle);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.category-chip:hover {
+  background: var(--glass-bg-hover);
+  color: var(--text-primary);
+  border-color: var(--glass-border-hover);
+  transform: translateY(-1px);
+}
+
+.category-chip:active {
+  transform: scale(0.96);
+}
+
+.category-chip.active,
+.category-chip.btn-primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 50%, #818cf8 100%);
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 16px -2px var(--primary-glow);
+}
+
+/* Hero Panel Responsiveness */
+.hero-glass-panel {
+  padding: 24px 16px;
+}
+
+@media (min-width: 640px) {
+  .hero-glass-panel {
+    padding: 38px 28px;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero-glass-panel {
+    padding: 48px 32px;
+  }
+}
+
+/* App Details Page Responsiveness */
+.app-details-header-card {
+  padding: 20px 16px;
+}
+
+.app-details-icon {
+  width: 72px;
+  height: 72px;
+}
+
+.app-header-actions {
+  margin-top: 16px;
+}
+
+.app-specs-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 640px) {
+  .app-details-header-card {
+    padding: 28px 24px;
+  }
+  .app-details-icon {
+    width: 88px;
+    height: 88px;
+  }
+  .app-header-actions {
+    width: auto !important;
+    margin-top: 0;
+  }
+  .app-specs-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .app-details-header-card {
+    padding: 34px 32px;
+  }
+  .app-details-icon {
+    width: 96px;
+    height: 96px;
+  }
+}
+
+/* Admin Login Card */
+.admin-login-card {
+  padding: 32px 20px;
+}
+
+@media (min-width: 480px) {
+  .admin-login-card {
+    padding: 40px 32px;
+  }
+}
+
+
+
+

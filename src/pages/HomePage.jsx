@@ -72,11 +72,10 @@ export default function HomePage() {
   return (
     <div className="main-content">
       {/* 1. Hero Section */}
-      <section className="container" style={{ marginBottom: '60px', paddingTop: '20px' }}>
+      <section className="container hero-section-container" style={{ marginBottom: '48px', paddingTop: '12px' }}>
         <div
-          className="glass-panel"
+          className="glass-panel hero-glass-panel"
           style={{
-            padding: '48px 32px',
             textAlign: 'center',
             position: 'relative',
             overflow: 'hidden',
@@ -101,22 +100,22 @@ export default function HomePage() {
             <span
               className="glass-badge"
               style={{
-                marginBottom: '18px',
-                padding: '6px 16px',
-                fontSize: '0.8rem',
-                gap: '8px'
+                marginBottom: '16px',
+                padding: '6px 14px',
+                fontSize: '0.78rem',
+                gap: '6px'
               }}
             >
-              <Sparkles size={14} color="var(--primary)" /> Verified Android Packages
+              <Sparkles size={13} color="var(--primary)" /> Verified Android Packages
             </span>
 
             <h1
               style={{
-                fontSize: 'clamp(2.2rem, 5vw, 3.6rem)',
+                fontSize: 'clamp(2rem, 5vw, 3.4rem)',
                 fontWeight: 800,
                 letterSpacing: '-0.03em',
                 lineHeight: 1.15,
-                marginBottom: '16px'
+                marginBottom: '14px'
               }}
             >
               Discover <span className="text-gradient">Amazing Apps</span>
@@ -124,9 +123,9 @@ export default function HomePage() {
 
             <p
               style={{
-                fontSize: 'clamp(1rem, 2vw, 1.15rem)',
+                fontSize: 'clamp(0.92rem, 2vw, 1.12rem)',
                 color: 'var(--text-secondary)',
-                marginBottom: '32px',
+                marginBottom: '26px',
                 lineHeight: 1.6
               }}
             >
@@ -137,33 +136,34 @@ export default function HomePage() {
             {/* Hero Search Bar */}
             <form
               onSubmit={handleHeroSearch}
+              className="hero-search-form"
               style={{
                 display: 'flex',
-                gap: '10px',
-                maxWidth: '560px',
-                margin: '0 auto 28px auto',
+                gap: '8px',
+                maxWidth: '540px',
+                margin: '0 auto 24px auto',
                 position: 'relative'
               }}
             >
-              <div style={{ position: 'relative', flex: 1 }}>
+              <div style={{ position: 'relative', flex: 1, minWidth: 0 }}>
                 <input
                   type="text"
-                  placeholder="Search by app name, developer, or keyword..."
+                  placeholder="Search apps, tools, games..."
                   value={heroSearch}
                   onChange={(e) => setHeroSearch(e.target.value)}
                   className="glass-input"
                   style={{
-                    height: '52px',
-                    paddingLeft: '46px',
-                    fontSize: '1rem',
+                    height: '48px',
+                    paddingLeft: '42px',
+                    fontSize: '0.95rem',
                     borderRadius: 'var(--radius-lg)'
                   }}
                 />
                 <Search
-                  size={20}
+                  size={18}
                   style={{
                     position: 'absolute',
-                    left: '16px',
+                    left: '14px',
                     top: '50%',
                     transform: 'translateY(-50%)',
                     color: 'var(--text-muted)'
@@ -175,10 +175,11 @@ export default function HomePage() {
                 type="submit"
                 className="btn-glass btn-primary"
                 style={{
-                  height: '52px',
-                  padding: '0 24px',
+                  height: '48px',
+                  padding: '0 20px',
                   borderRadius: 'var(--radius-lg)',
-                  fontSize: '1rem'
+                  fontSize: '0.95rem',
+                  flexShrink: 0
                 }}
               >
                 Search
@@ -191,20 +192,20 @@ export default function HomePage() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '24px',
+                gap: '16px',
                 flexWrap: 'wrap',
-                fontSize: '0.82rem',
+                fontSize: '0.8rem',
                 color: 'var(--text-muted)'
               }}
             >
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <ShieldCheck size={16} color="var(--accent-emerald)" /> Direct APK Storage
+                <ShieldCheck size={15} color="var(--accent-emerald)" /> Direct APK Storage
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <Zap size={16} color="var(--primary)" /> Zero Fake Counters
+                <Zap size={15} color="var(--primary)" /> Zero Fake Counters
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <Smartphone size={16} color="var(--accent-purple)" /> PWA Installable
+                <Smartphone size={15} color="var(--accent-purple)" /> PWA Installable
               </span>
             </div>
           </div>
@@ -213,9 +214,9 @@ export default function HomePage() {
 
       {/* 2. Categories Horizontal Bar */}
       {categories.length > 0 && (
-        <section className="container" style={{ marginBottom: '48px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
-            <h2 style={{ fontSize: '1.25rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <section className="container" style={{ marginBottom: '44px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Layers size={18} color="var(--primary)" /> Browse Categories
             </h2>
             <Link to="/apps" style={{ fontSize: '0.85rem', color: 'var(--primary)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
@@ -223,26 +224,12 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div
-            style={{
-              display: 'flex',
-              gap: '12px',
-              overflowX: 'auto',
-              paddingBottom: '8px',
-              scrollbarWidth: 'none'
-            }}
-          >
+          <div className="category-scroll-container">
             {categories.map((cat) => (
               <Link
                 key={cat.id}
                 to={`/categories/${cat.slug}`}
-                className="btn-glass"
-                style={{
-                  padding: '10px 18px',
-                  borderRadius: 'var(--radius-full)',
-                  whiteSpace: 'nowrap',
-                  fontSize: '0.88rem'
-                }}
+                className="category-chip"
               >
                 <span>{cat.name}</span>
               </Link>
