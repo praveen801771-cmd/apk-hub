@@ -80,22 +80,17 @@ export default function Navbar() {
             flexShrink: 0
           }}
         >
-          <div
+          <img
+            src="/favicon.svg"
+            alt="APK Hub"
             style={{
               width: '36px',
               height: '36px',
-              borderRadius: '11px',
-              background: 'linear-gradient(135deg, #0ea5e9 0%, #6366f1 50%, #a855f7 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              borderRadius: '10px',
               boxShadow: '0 4px 14px -2px var(--primary-glow)',
-              border: '1px solid rgba(255, 255, 255, 0.35)',
               flexShrink: 0
             }}
-          >
-            <Sparkles size={19} color="#ffffff" />
-          </div>
+          />
           <div>
             <span
               style={{

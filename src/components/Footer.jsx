@@ -29,21 +29,18 @@ export default function Footer() {
           {/* Col 1: Brand */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-              <div
+              <img
+                src="/favicon.svg"
+                alt="APK Hub"
                 style={{
                   width: '32px',
                   height: '32px',
-                  borderRadius: '10px',
-                  background: 'linear-gradient(135deg, #38bdf8 0%, #818cf8 100%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
+                  borderRadius: '9px',
+                  boxShadow: '0 4px 12px -2px var(--primary-glow)'
                 }}
-              >
-                <Sparkles size={18} color="#fff" />
-              </div>
+              />
               <span style={{ fontSize: '1.2rem', fontWeight: 800 }} className="text-gradient">
-                APK Store
+                APK Hub
               </span>
             </div>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: '280px' }}>
